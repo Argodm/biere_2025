@@ -1,0 +1,141 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #84b0cb;
+}
+.toolbar {
+    background-color: midnightblue;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+.item {
+    display: block;
+    color: rgb(255, 255, 255);
+    float: right;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+
+.logo{
+    float: left;
+    margin: auto;
+    margin-right: 50%;
+}
+
+
+
+.item:hover {
+    background-color: rgb(50, 50, 146);
+    transform: scale(1.1);
+}
+.météodujour {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    margin:auto;
+}
+
+.recherche{
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    margin:auto;
+    height: 20px;
+}
+
+.recherche:hover{
+    background-color: rgb(223, 223, 255);
+    transform: scale(1.1);
+}
+
+.weather_animated {
+    color: #ffffff;
+    height: 300px;
+    width: 500px;
+    position: absolute;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-left: 50%;
+    transform: translate(-50%, 0%);
+    border: 4px solid #608094;
+    background: #16394c;
+}
+
+.weather_animated .location {
+    display: block;
+    height: 40px;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.weather_animated .main_left {
+    float: left;
+    width: 275px;
+    height: 137px;
+}
+
+.weather_animated .main_left i {
+    background-size: cover;
+    width: 140px;
+    height: 137px;
+    left: 22px;
+}
+
+.weather_animated .main_right {
+    float: right;
+    height: 137px;
+    padding-top: 26px;
+    position: absolute;
+    left: 67px;
+    right: 37px;
+    left: unset;
+}
+
+.weather_animated .main_right span {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 13px;
+}
+
+.weather_animated .week {
+    clear: both;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.weather_animated .week .day {
+    display: inline-block;
+    width: 95px;
+    height: 107px;
+    position: relative;
+}
+
+.weather_animated .week .day .name {
+    font-weight: 600;
+    font-size: 12px;
+    display: block;
+}
+
+.weather_animated .week .day .temperature {
+    position: absolute;
+    bottom: 11px;
+    width: 100%;
+    left: 2px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.weather_animated .week .day i {
+    top: 14px;
+    left: 16px;
+    background-size: 60px;
+}
