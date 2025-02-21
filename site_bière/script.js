@@ -24,3 +24,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 });
+
+async function fetchBeerByUrl(url){
+    const httpRes = await fetch(url);
+    const data = await httpRes.json();
+    return data;
+}
+
+async function displayBeer(beer) {
+    const cardContainer = document.getElementById("card-container");
+    const beerCard = document.createElement("div");
+    beerCard.classList.add("card", "h-100", "shadow-sm");
+
+    cardContainer.appendChild(beerCard);
+    
+}
+
+console.log(fetchBeerByUrl('https://api.punkapi.com/v2/beers/1'));
