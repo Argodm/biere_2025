@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Météo Mines Nancy</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="icon" href="favicon.png">
+  <style>
+.toolbar {
+    background-color: midnightblue;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+.item {
+    display: block;
+    color: rgb(255, 255, 255);
+    float: right;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+
+.logo{
+    float: left;
+    margin: auto;
+    margin-right: 50%;
+}
+
+
+
+.item:hover {
+    background-color: rgb(50, 50, 146);
+    transform: scale(1.1);
+}
+.météodujour {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    margin:auto;
+}
+
+.recherche{
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    margin:auto;
+    height: 20px;
+}
+
+.recherche:hover{
+    background-color: rgb(223, 223, 255);
+    transform: scale(1.1);
+}
+    </style>
+
+</head>
+<body>
+    <header class= "toolbar">
+        <img class = "logo" src="image/pngegg.png" alt="Logo Météo" height="40px" width="50px">
+        <a class = "item" href="meteo_du_jour.html">météo du jour</a>
+        <a class = "item" href="prevision_meteo.html">prévision météo</a>
+        <a class = "item" href="historique_meteo.html">historique météo</a>
+        <input class="recherche" type="text" placeholder="Rechercher une ville" >
+    </header>
+    <div class="météodujour">
+    </div>
+
+</html>
