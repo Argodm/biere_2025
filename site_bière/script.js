@@ -1,5 +1,29 @@
 const baseUrl = 'http://www.7timer.info/bin/civil.php?'
 
+const windCorrespondance = {
+    1: 	"Below 0.3m/s (calm)",
+    2 :	"0.3 -3.4m/s (light)",
+    3: 	"3.4-8.0m/s (moderate)",
+    4:	"8.0-10.8m/s (fresh)",
+    5:	"10.8-17.2m/s (strong)",
+    6: 	"17.2-24.5m/s (gale)",
+    7:	"24.5-32.6m/s (storm)",
+    8: "Over 32.6m/s (hurricane)"
+};
+
+const precipCorrespondance = {
+    0: 	"None",
+    1: 	"0-0.25mm/hr",
+    2: 	"0.25-1mm/hr",
+    3: 	"1-4mm/hr",
+    4:	"4-10mm/hr",
+    5: 	"10-16mm/hr",
+    6: 	"16-30mm/hr",
+    7: 	"30-50mm/hr",
+    8: 	"50-75mm/hr",
+    9: 	"Over 75mm/hr"
+};
+
 
 async function fetchByCoordinates(lon, lat){
     const url = baseUrl + 'lon=' + lon + '&lat='+ lat + '&ac=0&lang=en&unit=metric&output=json&tzshift=0'
@@ -10,26 +34,27 @@ async function fetchByCoordinates(lon, lat){
 }
 
 async function displayWeather(weather_data, city_data) {
-    const weatherCard = document.getElementById("weather-card");
 
     //city
-    const cardTitle = document.createElement("h5");
-    cardTitle.classList.add("card-title", "text-center");
-    console.log(city_data[2])
+    const cardTitle = document.getElementById("location-name");
+    //cardTitle.classList.add("card-title", "text-center");
     cardTitle.textContent = `${city_data[2]}`;
-    weatherCard.appendChild(cardTitle);
 
     //weather icon
-    const cardBody = document.createElement("div");
-    cardBody.classList.add("card-body");
-
-    const cardIcon = document.createElement("img");
+    const cardIcon = document.getElementById("current-icon")
     cardIcon.src = '../image/' + weather_data.dataseries[0].weather + '.png';
-    cardIcon.classList.add("img-fluid", "me-3");
-    cardBody.appendChild(cardIcon);
+    
+    //Weather info 
+    const windSpan = document.getElementById("current_wind_speed");
+    const precipSpan = document.getElementById("current_precip");
+    const tempSpan = document.getElementById("current_temperature");
 
-    weatherCard.appendChild(cardBody);
+    windSpan.textContent = "Wind : " + windCorrespondance[weather_data.dataseries[0].wind10m.speed];
+    precipSpan.textContent = "Precip. : " + precipCorrespondance[weather_data.dataseries[0].prec_amount];
+    tempSpan.textContent = "Temp. : " + weather_data.dataseries[0].temp2m + "°C"
+
 }
+
 
 async function getCoordinates(city) {
     const url = 'https://nominatim.openstreetmap.org/search?city=' + city + '&format=json';

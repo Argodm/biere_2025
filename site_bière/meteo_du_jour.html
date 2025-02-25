@@ -5,16 +5,43 @@
   <title>Météo Mines Nancy</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
+  <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
     <header class= "toolbar">
-        <img class = "logo" src="image/pngegg.png" alt="Logo Météo" height="40px" width="50px">
+        <img class = "logo" src="image/pngegg.png" alt="Logo Météo" height="50px" width="50px">
         <a class = "item" href="meteo_du_jour.html">météo du jour</a>
         <a class = "item" href="prevision_meteo.html">prévision météo</a>
         <a class = "item" href="historique_meteo.html">historique météo</a>
         <input class="recherche" type="text" placeholder="Rechercher une ville" >
     </header>
-    <div id="weather-card" class="card">
+    <div class="weather_animated">
+
+        <div class="location">
+
+           <span id="location-name"></span>
+
+        </div>
+
+        <div class="main_left">
+
+            <i id="current-icon" class="weather-icon"></i>
+            
+        </div>
+
+        <div class="main_right">
+
+            <span id="current_wind_speed" class="wind"></span>
+            <span id="current_precip" class="precip"></span>
+            <span id="current_pressure" class="pressure"></span>
+            <span id="current_temperature" class="temperature"></span>
+
+        </div>
+
+        <div data-api="forecast_week" class="week"><div class="day"><span class="name">SAT</span><i class="full_clouds"></i><span class="temperature">14 °c</span></div><div class="day"><span class="name">SUN</span><i class="full_clouds"></i><span class="temperature">13 °c</span></div><div class="day"><span class="name">MON</span><i class="full_clouds"></i><span class="temperature">13 °c</span></div><div class="day"><span class="name">TUE</span><i class="full_clouds"></i><span class="temperature">13 °c</span></div><div class="day"><span class="name">WED</span><i class="full_clouds"></i><span class="temperature">12 °c</span></div></div>
+
+    </div>
 </body>
 </html>
