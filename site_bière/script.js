@@ -41,8 +41,9 @@ async function displayWeather(weather_data, city_data) {
     cardTitle.textContent = `${city_data[2]}`;
 
     //weather icon
-    const cardIcon = document.getElementById("current-icon")
-    cardIcon.src = '../image/' + weather_data.dataseries[0].weather + '.png';
+    const cardIcon = document.getElementById("current-icon");
+    console.log('/image/' + weather_data.dataseries[0].weather + '.png');
+    cardIcon.src = "./image/" + weather_data.dataseries[0].weather + '.png';
     
     //Weather info 
     const windSpan = document.getElementById("current_wind_speed");
