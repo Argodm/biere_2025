@@ -40,6 +40,7 @@ async function displayWeather(weather_data, city_data) {
     //cardTitle.classList.add("card-title", "text-center");
     cardTitle.textContent = `${city_data[2]}`;
 
+    //current weather
     //weather icon
     const cardIcon = document.getElementById("current-icon");
     console.log('/image/' + weather_data.dataseries[0].weather + '.png');
@@ -53,6 +54,19 @@ async function displayWeather(weather_data, city_data) {
     windSpan.textContent = "Wind : " + windCorrespondance[weather_data.dataseries[0].wind10m.speed];
     precipSpan.textContent = "Precip. : " + precipCorrespondance[weather_data.dataseries[0].prec_amount];
     tempSpan.textContent = "Temp. : " + weather_data.dataseries[0].temp2m + "°C"
+
+    //weather forecast
+    for (let i=1; i<5; i++) {
+        const data_i = weather_data.dataseries[i];
+        const tempspan_i = document.getElementById("temp" + i.toString());
+        tempspan_i.textContent = data_i.temp2m + "°C";
+
+        const icon_i = document.getElementById("icon" + i.toString());
+        console.log("icon" + i.toString());
+        icon_i.src = "./image/" + data_i.weather + '.png';
+    }
+    
+    
 
 }
 
