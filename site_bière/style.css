@@ -64,7 +64,7 @@ body {
 
 .weather_animated {
     color: #ffffff;
-    height: 300px;
+    height: auto;
     width: auto;
     position: absolute;
     border-radius: 10px;
