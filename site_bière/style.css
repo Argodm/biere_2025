@@ -25,7 +25,8 @@ body {
 .logo{
     float: left;
     margin: auto;
-    margin-right: 50%;
+    margin-left : 2px;
+    margin-right: 55%;
 }
 
 .weather-icon {
@@ -63,7 +64,7 @@ body {
 
 
 .weather_animated {
-    color: #ffffff;
+    color: #000000;
     height: auto;
     width: auto;
     position: absolute;
@@ -71,8 +72,8 @@ body {
     margin-top: 50px;
     margin-left: 50%;
     transform: translate(-50%, 0%);
-    border: 4px solid #608094;
-    background: #16394c;
+    border: 4px solid midnightblue;
+    background: #ffffff;
     padding: auto;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -143,6 +144,7 @@ body {
 
 .weather_animated .week .day .temperature {
     position: relative;
+    margin-top: auto;
     bottom: 11px;
     width: 100%;
     left: 2px;
