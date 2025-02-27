@@ -15,6 +15,20 @@ async function getCityWeather(userInput) {
     displayForecast(data, info);
 }
 
+function getCurrentTimepoint(weather_data) {
+    const init = weather_data.init.slice(-2); //get init time as a string
+    const initTime = parseInt(init, 10) + 3; //get the time for the first timepoint
+    const current_hour = (new Date()).getHours();
+    let index = 0;
+    let nearest_hour = initTime;
+    
+    while  (nearest_hour < current_hour) {
+        nearest_hour += 3
+        index += 1
+    }
+    return index
+}
+   
 
 inputElement.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
@@ -46,13 +60,16 @@ async function getCoordinates(city) {
 
 
 async function displayForecast(weather_data, city_data) {
-    let index = 13 //first timepoint to consider (next day, 1PM approximately)
+    let index = getCurrentTimepoint(weather_data) + 8;
     let max = weather_data.dataseries.length;
-    let day_index = 0;
+    let day_index = 1;
     
     //city
     const cardTitle = document.getElementById("location-name");
     cardTitle.textContent = `${city_data[2]}`;
+
+    console.log(max);
+
 
     for (let i=index; i<max; i += 8) {
         
@@ -65,6 +82,7 @@ async function displayForecast(weather_data, city_data) {
 
         const icon_i = document.getElementById("icon" + day_index.toString());
         icon_i.src = "./image/" + data_i.weather + '.png';
+        day_index += 1;
     }
 }
 
@@ -82,6 +100,7 @@ async function main() {
     const data = await fetchByCoordinates(info[0], info[1]);
     console.log(data);
     displayForecast(data, info);
+    console.log(getCurrentTimepoint(data));
 }
 
 main();

@@ -65,7 +65,7 @@ body {
 .weather_animated {
     color: #ffffff;
     height: 300px;
-    width: 500px;
+    width: auto;
     position: absolute;
     border-radius: 10px;
     margin-top: 50px;
@@ -73,6 +73,9 @@ body {
     transform: translate(-50%, 0%);
     border: 4px solid #608094;
     background: #16394c;
+    padding: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 

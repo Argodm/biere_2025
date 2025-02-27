@@ -56,6 +56,20 @@ async function fetchByCoordinates(lon, lat){
     return data;
 }
 
+function getCurrentTimepoint(weather_data) {
+    const init = weather_data.init.slice(-2); //get init time as a string
+    const initTime = parseInt(init, 10) + 3; //get the time for the first timepoint
+    const current_hour = (new Date()).getHours();
+    let index = 0;
+    let nearest_hour = initTime;
+    
+    while  (nearest_hour < current_hour) {
+        nearest_hour += 3
+        index += 1
+    }
+    return index
+}
+
 async function displayWeather(weather_data, city_data) {
 
     //city
@@ -64,23 +78,25 @@ async function displayWeather(weather_data, city_data) {
     cardTitle.textContent = `${city_data[2]}`;
 
     //current weather
+    let index = getCurrentTimepoint(weather_data);
+    console.log(index);
     //weather icon
     const cardIcon = document.getElementById("current-icon");
-    console.log('/image/' + weather_data.dataseries[2].weather + '.png');
-    cardIcon.src = "./image/" + weather_data.dataseries[2].weather + '.png';
+    console.log('/image/' + weather_data.dataseries[index].weather + '.png');
+    cardIcon.src = "./image/" + weather_data.dataseries[index].weather + '.png';
     
     //Weather info 
     const windSpan = document.getElementById("current_wind_speed");
     const precipSpan = document.getElementById("current_precip");
     const tempSpan = document.getElementById("current_temperature");
 
-    windSpan.textContent = "Wind : " + windCorrespondance[weather_data.dataseries[2].wind10m.speed];
-    precipSpan.textContent = "Precip. : " + precipCorrespondance[weather_data.dataseries[2].prec_amount];
-    tempSpan.textContent = "Temp. : " + weather_data.dataseries[2].temp2m + "°C"
+    windSpan.textContent = "Wind : " + windCorrespondance[weather_data.dataseries[index].wind10m.speed];
+    precipSpan.textContent = "Precip. : " + precipCorrespondance[weather_data.dataseries[index].prec_amount];
+    tempSpan.textContent = "Temp. : " + weather_data.dataseries[index].temp2m + "°C"
 
     //weather forecast
     for (let i=1; i<5; i++) {
-        const data_i = weather_data.dataseries[i+2];
+        const data_i = weather_data.dataseries[index + i];
         const tempspan_i = document.getElementById("temp" + i.toString());
         tempspan_i.textContent = data_i.temp2m + "°C";
 
