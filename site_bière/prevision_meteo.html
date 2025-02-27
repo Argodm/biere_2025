@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
   <link rel="stylesheet" href="style.css">
+  <script src="prevision.js" defer></script>
 
 </head>
 <body>
@@ -18,31 +19,55 @@
     </header>
     <div class="weather_animated">
 
-        <input type="hidden" name="client_ip" value="2a02:8429:f6cf:e01:7969:74aa:7844:3224">
-
         <div class="location">
 
-           <span data-api="location">Marseille, Provence-Alpes-Cote d'Azur, France</span>
+           <span id="location-name"></span>
 
         </div>
 
         <div class="main_left">
 
-            <i data-api="current_icon" class="full_clouds"></i>
-            <span data-api="current_main_descr">Overcast</span>
-
+            <img id="current-icon" class="weather-icon"></img>
+            
         </div>
 
-        <div class="main_right">
 
-            <span data-api="current_wind_speed" class="wind">Wind: 26 kmph</span>
-            <span data-api="current_precip" class="precip">Precip: 0 mm</span>
-            <span data-api="current_pressure" class="pressure">Pressure: 1026 mb</span>
-            <span data-api="current_temperature" class="temperature">16°c</span>
-
+        <div class="week">
+            <div class="day">
+                <span class="name1"></span>
+                <img id = icon1 class="small_icon"></img>
+                <span id=temp1 class="temperature"></span>
+            </div>
+            <div class="day">
+                <span class="name2"></span>
+                <img id = icon2 class="small_icon"></img>
+                <span id=temp2 class="temperature"></span>
+            </div>
+            <div class="day">
+                <span class="name3"></span>
+                <img id = icon3 class="small_icon"></img>
+                <span id=temp3 class="temperature"></span>
+            </div>
+            <div class="day">
+                <span class="name4"></span>
+                <img id = icon4 class="small_icon"></img>
+                <span id=temp4 class="temperature"></span>
+            </div>
+            <div class="day">
+                <span class="name5"></span>
+                <img id = icon5 class="small_icon"></img>
+                <span id=temp5 class="temperature"></span>
+            </div>
+            <div class="day">
+                <span class="name6"></span>
+                <img id = icon6 class="small_icon"></img>
+                <span id=temp6 class="temperature"></span>
+            </div><div class="day">
+                <span class="name7"></span>
+                <img id = icon7 class="small_icon"></img>
+                <span id=temp7 class="temperature"></span>
+            </div>
         </div>
-
-        <div data-api="forecast_week" class="week"><div class="day"><span class="name">SAT</span><i class="full_clouds"></i><span class="temperature">14 °c</span></div><div class="day"><span class="name">SUN</span><i class="full_clouds"></i><span class="temperature">13 °c</span></div><div class="day"><span class="name">MON</span><i class="full_clouds"></i><span class="temperature">13 °c</span></div><div class="day"><span class="name">TUE</span><i class="full_clouds"></i><span class="temperature">13 °c</span></div><div class="day"><span class="name">WED</span><i class="full_clouds"></i><span class="temperature">12 °c</span></div></div>
 
     </div>
 
