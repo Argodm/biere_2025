@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Météo Mines Nancy</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="stylesheet" href="style.css">
+  <script src="prevision.js" defer></script>
+
+</head>
+<body>
+    <header class= "toolbar">
+        <img class = "logo" src="image/pngegg.png" alt="Logo Météo" height="50px" width="50px">
+        <a class = "item" href="meteo_du_jour.html">METEO DU JOUR</a>
+        <a class = "item" href="prevision_meteo.html">PREVISION METEO</a>
+        <input class="recherche" type="text" placeholder="Rechercher une ville" >
+    </header>
+    <div class="weather_animated">
+
+        <div class="location">
+
+           <span id="location-name"></span>
+
+        </div>
+
+
+        <div class="week">
+            <div class="day">
+                <span id="name1" class="name"></span>
+                <img id = icon1 class="small_icon"></img>
+                <span id=temp1 class="temperature"></span>
+            </div>
+            <div class="day">
+                <span id="name2" class="name"></span>
+                <img id = icon2 class="small_icon"></img>
+                <span id=temp2 class="temperature"></span>
+            </div>
+            <div class="day">
+                <span id="name3" class="name"></span>
+                <img id = icon3 class="small_icon"></img>
+                <span id=temp3 class="temperature"></span>
+            </div>
+            <div class="day">
+                <span id="name4" class="name"></span>
+                <img id = icon4 class="small_icon"></img>
+                <span id=temp4 class="temperature"></span>
+            </div>
+            <div class="day">
+                <span id="name5" class="name"></span>
+                <img id = icon5 class="small_icon"></img>
+                <span id=temp5 class="temperature"></span>
+            </div>
+            <div class="day">
+                <span id="name6" class="name"></span>
+                <img id = icon6 class="small_icon"></img>
+                <span id=temp6 class="temperature"></span>
+            </div><div class="day">
+                <span id="name7" class="name"></span>
+                <img id = icon7 class="small_icon"></img>
+                <span id=temp7 class="temperature"></span>
+            </div>
+        </div>
+
+    </div>
+
+</html>
